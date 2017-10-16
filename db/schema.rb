@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016052552) do
+ActiveRecord::Schema.define(version: 20171016055221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "equipment", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "category"
+    t.string "photo"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_equipment_on_user_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "duration"
+    t.integer "price"
+    t.bigint "user_id"
+    t.bigint "equipment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipment_id"], name: "index_sessions_on_equipment_id"
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +54,7 @@ ActiveRecord::Schema.define(version: 20171016052552) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "equipment", "users"
+  add_foreign_key "sessions", "equipment"
+  add_foreign_key "sessions", "users"
 end
