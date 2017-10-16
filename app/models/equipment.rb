@@ -1,4 +1,4 @@
 class Equipment < ApplicationRecord
   belongs_to :user
-  has_many :sessions
+  has_many :contracts
 end
