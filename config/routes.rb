@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   # send the user to the /equipments/:equipment_id/show
 
   resources :equipments, only: [:show]# <----- /equipments/:equipment_id/show ; this shows the details about the equipment
-  resources :sessions#<---- sessions should have all CRUD routes. right?
+  resources :contracts#<---- contracts should have all CRUD routes. right?
 end

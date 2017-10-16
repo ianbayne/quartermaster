@@ -1,6 +1,6 @@
-class CreateSessions < ActiveRecord::Migration[5.1]
+class CreateContracts < ActiveRecord::Migration[5.1]
   def change
-    create_table :sessions do |t|
+    create_table :contracts do |t|
       t.datetime :duration
       t.integer :price
       t.references :user, foreign_key: true
