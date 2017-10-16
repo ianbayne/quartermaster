@@ -37,17 +37,6 @@ ActiveRecord::Schema.define(version: 20171016072344) do
     t.index ["user_id"], name: "index_equipment_on_user_id"
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.datetime "duration"
-    t.integer "price"
-    t.bigint "user_id"
-    t.bigint "equipment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["equipment_id"], name: "index_sessions_on_equipment_id"
-    t.index ["user_id"], name: "index_sessions_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -68,6 +57,4 @@ ActiveRecord::Schema.define(version: 20171016072344) do
   add_foreign_key "contracts", "equipment"
   add_foreign_key "contracts", "users"
   add_foreign_key "equipment", "users"
-  add_foreign_key "sessions", "equipment"
-  add_foreign_key "sessions", "users"
 end
