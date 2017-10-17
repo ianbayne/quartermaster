@@ -7,7 +7,7 @@
       <p>Price: <%= @equipment.price %></p>
       <p>Description: <%= @equipment.description %></p>
 
-      <%= link_to "Book this equiment", new_equipment_contract_path, class: "btn btn-primary" %>
+      <%= link_to "Book this equiment", new_equipment_contract_path(@equipment), class: "btn btn-primary" %>
     </div>
   </div>
 </div>

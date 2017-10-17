@@ -1,1 +1,8 @@
 <h2>Profile page for User ID:<%= @user.id %></h2>
+
+<% @contracts.each do |contract| %>
+<p>You are renting <%= contract.equipment.name %></p>
+<p>From <%= contract.start_time %></p>
+<p>To <%= contract.end_time %></p>
+
+<% end %>
