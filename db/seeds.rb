@@ -15,7 +15,10 @@ puts "Making seeds"
 
   adjective = %w(new old crappy like-new).sample
   category = ["tent", "stove", "cooking goods", "sleeping bag"].sample
-  equipment = Equipment.new(name: "#{adjective} #{category}", description: Faker::Lorem.sentence, category: category)
+  equipment = Equipment.new(name: "#{adjective} #{category}", 
+                            description: Faker::Lorem.sentence, 
+                            category: category,
+                            price: (1..100).to_a.sample )
   equipment.user = user
   url = "https://images-na.ssl-images-amazon.com/images/I/41MqlCTWx8L._SL500_AC_SS350_.jpg"
   equipment.remote_photo_url = url
