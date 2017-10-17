@@ -1,0 +1,14 @@
+<%= @equipment.name %>
+<%= cl_image_path @equipment.photo, height: 300, width: 400, crop: :fill %>
+<%= @equipment.description %>
+<%= @equipment.category %>
+
+
+<%= simple_form_for(@contract) do |f| %>
+  <%= @equipment.price %>
+  <%= f.input :start_time, as: :date %>
+  <%= f.input :end_time, as: :date %>
+  <%#= f.association :, as: :hidden %>   <!-- Something like this?? -->
+  <%= f.submit %>
+<% end %>
+
