@@ -17,6 +17,8 @@ puts "Making seeds"
   category = ["tent", "stove", "cooking goods", "sleeping bag"].sample
   equipment = Equipment.new(name: "#{adjective} #{category}", description: Faker::Lorem.sentence, category: category)
   equipment.user = user
+  url = "https://images-na.ssl-images-amazon.com/images/I/41MqlCTWx8L._SL500_AC_SS350_.jpg"
+  equipment.remote_photo_url = url
   equipment.save
 
 
