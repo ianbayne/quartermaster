@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+gem 'bootstrap-datepicker-rails'
 gem 'faker'
 gem 'devise'
 gem 'figaro'
