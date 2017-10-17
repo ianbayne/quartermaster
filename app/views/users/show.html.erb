@@ -4,7 +4,9 @@
 <ul>
   <% @user.equipment.each do |equipment| %>
     <li>
-      <%= equipment.name %> <%= link_to "Edit", edit_user_equipment_path([@user, @equipment]) %><i class="fa fa-trash-o" aria-hidden="true"></i>
+      <%= equipment.name %>
+      <%= cl_image_tag equipment.photo %>
+      <%= link_to "Edit", edit_user_equipment_path([@user, @equipment]) %><i class="fa fa-trash-o" aria-hidden="true"></i>
     </li>
   <% end %>
 </ul>

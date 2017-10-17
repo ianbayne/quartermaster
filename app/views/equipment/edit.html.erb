@@ -4,7 +4,7 @@
   <%= f.input :name %>
   <%= f.input :description, as: :text %>
   <%= f.input :category%>
-  <%= f.input :photo %>
+  <%= f.input :photo, @equipment.photo.url if @equipment.photo.present? %>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
