@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+gem 'faker'
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
@@ -25,3 +26,6 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
