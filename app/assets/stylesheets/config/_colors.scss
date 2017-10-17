@@ -11,11 +11,13 @@ $light-gray: #FAFAFA;
 
 
 $color__theme: #1E4A34;
+$color__theme--alpha95: rgba(30, 74, 52, 0.95);
 $color__theme--alpha75: rgba(30, 74, 52, 0.75);
 $color__theme--alpha50: rgba(30, 74, 52, 0.5);
 $color__theme--alpha25: rgba(30, 74, 52, 0.25);
+$color__theme--alpha0: rgba(30, 74, 52, 0);
 $color__font: #2D2D2D;
-$color__font--light: #8C8C8C;
+$color__font--light: #BFBFBF;
 
 $duration--sm: 0.25s;
 $duration--md: 0.5s;
