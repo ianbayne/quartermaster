@@ -30,10 +30,10 @@ class EquipmentController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     @equipment = Equipment.find(params[:id])
     @equipment.update(equipment_params)
-    @equipment.save
-    redirect_to root_path
+    redirect_to user_path(@user)
   end
 
   private

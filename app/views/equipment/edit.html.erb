@@ -1,4 +1,5 @@
-<%= simple_form_for([@user, @equipment]) do |f| %>
+<%= simple_form_for @equipment, url: url_for(action: 'update', controller: 'equipment'),
+    method: 'patch' do |f| %>
   <%#= f.error_notification %>
   <%= f.input :name %>
   <%= f.input :description, as: :text %>
