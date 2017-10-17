@@ -1,4 +1,8 @@
 class EquipmentController < ApplicationController
+  def index
+    @equipment = Equipment.all
+  end
+
   def new
     @user = User.find(params[:user_id])
     @equipment = Equipment.new
