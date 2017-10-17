@@ -10,23 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016072344) do
+ActiveRecord::Schema.define(version: 20171016112640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contracts", force: :cascade do |t|
-    t.datetime "duration"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer "price"
     t.bigint "user_id"
-    t.bigint "equipment_id"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["equipment_id"], name: "index_contracts_on_equipment_id"
+    t.index ["item_id"], name: "index_contracts_on_item_id"
     t.index ["user_id"], name: "index_contracts_on_user_id"
   end
 
-  create_table "equipment", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "category"
@@ -34,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171016072344) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_equipment_on_user_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(version: 20171016072344) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "contracts", "equipment"
+  add_foreign_key "contracts", "items"
   add_foreign_key "contracts", "users"
-  add_foreign_key "equipment", "users"
+  add_foreign_key "items", "users"
 end
