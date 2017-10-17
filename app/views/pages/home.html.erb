@@ -6,12 +6,20 @@
   </div>
 </div>
 
-<%= simple_form_for(@equipment) do |f| %> <!-- Needs instance of equipment to work -->
-  <%= f.input :search, placeholder: "&#xf002; Try \"2 person camping tent\"" %>
-  <%= f.submit "Search" %>
-<% end %>
+<%#= simple_form_for(@equipment) do |f| %> <!-- Needs instance of equipment to work -->
+  <%#= f.input :search, placeholder: "&#xf002; Try \"2 person camping tent\"" %>
+  <%#= f.submit "Search" %>
+<%# end %>
 
-<%=  %>
+<div class="content">
+  <div class="row">
+    <% @equipment.each do %>
+      <div class="col-sm-4">
+        <%= @equipment.name %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 
 
