@@ -1,14 +1,13 @@
-<%= @equipment.name %>
-<%= cl_image_path @equipment.photo, height: 300, width: 400, crop: :fill %>
-<%= @equipment.description %>
-<%= @equipment.category %>
+<div class="content center-block text-center">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1><%= @equipment.name %></h1>
+      <%= cl_image_tag @equipment.photo, height: 300, width: 400, crop: :fill %>
+      <p>Category: <%= @equipment.category %></p>
+      <p>Price: <%= @equipment.price %></p>
+      <p>Description: <%= @equipment.description %></p>
 
-
-<%= simple_form_for(@contract) do |f| %>
-  <%= @equipment.price %>
-  <%= f.input :start_time, as: :date %>
-  <%= f.input :end_time, as: :date %>
-  <%#= f.association :, as: :hidden %>   <!-- Something like this?? -->
-  <%= f.submit %>
-<% end %>
-
+      <%= link_to "Book this equiment", new_equipment_contract_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
