@@ -7,13 +7,6 @@ Rails.application.routes.draw do
     resources :equipment#<----- this is for the lenders/host
   end
 
-  namespace :s do#<----- search
-    resources :equipment, only: [:index]#<------ search results
-  end
-
-  #this is for searching equipment. The index page will show the cards, and clicking one card will
-  # send the user to the /equipments/:equipment_id/show
-
-  resources :equipment, only: [:show]# <----- /equipments/:equipment_id/show ; this shows the details about the equipment
+  resources :equipment, only: [:index, :show]# <----- /equipments/:equipment_id/show ; this shows the details about the equipment
   resources :contracts#<---- contracts should have all CRUD routes. right?
 end
