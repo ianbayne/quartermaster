@@ -1,10 +1,15 @@
 <h2>Profile page for User ID:<%= @user.id %></h2>
 
-<h3>The equipment you want to rent:</h3>
+<h3>The equipment you want to lend:</h3>
 <ul>
   <% @user.equipment.each do |equipment| %>
     <li>
       <%= equipment.name %>
+      <%= cl_image_tag equipment.photo %>
+      <%= link_to "Edit", edit_user_equipment_path([@user, @equipment]) %>
+      <%#= link_to equipment_path([@user, @equipment]), method: :delete, data: { confirm: "Are you sure?"} do %>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <%# end %>
     </li>
   <% end %>
 </ul>
