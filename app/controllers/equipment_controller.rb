@@ -25,6 +25,12 @@ class EquipmentController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def create
+  end
+
   private
 
   def equipment_params
