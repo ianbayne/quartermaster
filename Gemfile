@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
-gem 'bootstrap-datepicker-rails'
+gem 'momentjs-rails', '>= 2.9.0'
 gem 'faker'
 gem 'devise'
 gem 'figaro'
