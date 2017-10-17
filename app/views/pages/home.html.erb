@@ -5,3 +5,13 @@
     <a class="btn btn-primary btn-lg">Sign Up</a>
   </div>
 </div>
+
+<%= simple_form_for(@equipment) do |f| %> <!-- Needs instance of equipment to work -->
+  <%= f.input :search, placeholder: "&#xf002; Try \"2 person camping tent\"" %>
+  <%= f.submit "Search" %>
+<% end %>
+
+<%=  %>
+
+
+
