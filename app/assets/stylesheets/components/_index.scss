@@ -3,5 +3,13 @@
 @import "navbar";
 @import "footer";
 @import "banner";
-@import "cards";
+@import "card";
+@import "buttons";
 
+
+.dummy-box {
+  align-items: center;
+  display: flex;
+  height: 200px;
+  justify-content: center
+}
