@@ -1,0 +1,10 @@
+<%= @equipment.name %>
+<%= cl_image_path @equipment.photo, height: 300, width: 400, crop: :fill %>
+<%= @equipment.description %>
+<%= @equipment.category %>
+
+
+<%= simple_form_for([@equipment, @contract]) do |f| %>
+  <%= f. %>
+<% end %>
+
