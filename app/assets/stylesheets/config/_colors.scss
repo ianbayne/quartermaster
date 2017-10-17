@@ -11,5 +11,12 @@ $light-gray: #FAFAFA;
 
 
 $color__theme: #1E4A34;
+$color__theme--alpha75: rgba(30, 74, 52, 0.75);
+$color__theme--alpha50: rgba(30, 74, 52, 0.5);
+$color__theme--alpha25: rgba(30, 74, 52, 0.25);
 $color__font: #2D2D2D;
 $color__font--light: #8C8C8C;
+
+$duration--sm: 0.25s;
+$duration--md: 0.5s;
+$duration--lg: 0.75s;
