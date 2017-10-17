@@ -1,4 +1,4 @@
-.btn {
+#button-home {
   background-color: transparent;
   border-radius: 0;
   border: 1px solid #FFFFFF;
@@ -10,6 +10,24 @@
   &:hover {
     background-color: $color__theme;
     // background-color: $color__theme--alpha75;
+    border: 1px solid $color__theme;
+    transition: $duration--sm;
+  }
+}
+
+.btn {
+  background-color: $color__theme;
+  opacity: 0.6;
+  border-radius: 0;
+  border: 1px solid #FFFFFF;
+  font-size: 22px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  padding: 8px 56px 9px;
+  transition: $duration--sm;
+  &:hover {
+    opacity: 1;
+    background-color: $color__theme--alpha75;
     border: 1px solid $color__theme;
     transition: $duration--sm;
   }
