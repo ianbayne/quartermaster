@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :equipment#<----- this is for the lenders/host
   end
 
-  resources :equipment, only: [:index, :show]# <----- /equipments/:equipment_id/show ; this shows the details about the equipment
+  resources :equipment, only: [:index, :show] do
+    resources :contracts, only: [:new, :create]
+  end
+
+  # resources :equipment, only: [:index, :show]# <----- /equipments/:equipment_id/show ; this shows the details about the equipment
   resources :contracts#<---- contracts should have all CRUD routes. right?
 end
