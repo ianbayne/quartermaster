@@ -1,5 +1,5 @@
 <h2>Rent <%= @equipment.name %></h2>
-<h2>Price per Day $15(test)</h2>
+<h2>Price per Day $<%= @equipment.price %></h2>
 
 <%= simple_form_for([@equipment, @contract]) do |f| %>
   <%#= f.error_notification %>
