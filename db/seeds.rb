@@ -19,7 +19,7 @@ puts "Making seeds"
   equipment.user = user
   equipment.save
 
-  contract = Contract.new(duration: Time.now, price: (1..10_000).to_a.sample)
+  contract = Contract.new(price: (1..10_000).to_a.sample)
   contract.equipment = equipment
   no_users = User.count
   random_id = (1..no_users).to_a.sample  # Chance of selecting equipment owned by self, however...
