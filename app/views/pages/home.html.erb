@@ -1,2 +1,11 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<% @equipment.each do |equipment| %>
+<ul>
+<li><%= equipment.name %></li>  
+<li><%= equipment.description %></li>
+<li><%= equipment.category %></li>
+<li><%= cl_image_tag equipment.photo, height: 300, width: 400, crop: :fill %></li>
+</ul>
+
+<% end %>
