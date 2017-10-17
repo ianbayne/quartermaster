@@ -1,4 +1,9 @@
 class EquipmentController < ApplicationController
+  def show
+    @equipment = Equipment.find(params[:id])
+    @contract = Contract.new
+  end
+
   def index
     @equipment = Equipment.all
   end

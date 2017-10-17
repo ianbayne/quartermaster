@@ -4,7 +4,11 @@
 <%= @equipment.category %>
 
 
-<%= simple_form_for([@equipment, @contract]) do |f| %>
-  <%= f. %>
+<%= simple_form_for(@contract) do |f| %>
+  <%= @equipment.price %>
+  <%= f.input :start_time, as: :date %>
+  <%= f.input :end_time, as: :date %>
+  <%#= f.association :, as: :hidden %>   <!-- Something like this?? -->
+  <%= f.submit %>
 <% end %>
 
