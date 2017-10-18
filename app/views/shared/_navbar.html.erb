@@ -8,7 +8,7 @@
     <!-- Partial match with equipment name, Logic is in Equipment model, controller  -->
     <%= form_tag root_path, 
       :method => 'get',
-      lass: 'form-group', label_html: { class:'form-inline' } do %>
+      class: 'form-group', label_html: { class:'form-inline' } do %>
         <%= text_field_tag :search,
         params[:search], placeholder: "Search with Equipment Name ",
         id: "search_query",
