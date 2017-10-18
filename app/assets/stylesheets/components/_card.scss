@@ -1,13 +1,15 @@
 .card {
+  // background-size: cover !important;
+  // border: 1px dashed red;
+  // margin-right: 25px;
+  // text-shadow: 0 0 3px rgba(2, 3, 23, 0.8);
   background-position: center;
-  background-size: cover !important;
+  background-repeat: no-repeat;
+  // background-size: 87.5%; // ONLY USEFUL FOR PRODUCT SHOTS ON A WHITE BG
   color: white;
   padding-bottom: 33.3333333%;
   position: relative;
-  // text-shadow: 0 0 3px rgba(2, 3, 23, 0.8);
   transition-duration: $duration--md;
-  // margin-right: 25px;
-  // border: 1px dashed red;
   &:hover {
     .card__overlay {
       opacity: 1;

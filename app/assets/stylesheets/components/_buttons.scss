@@ -2,6 +2,7 @@
   background-color: transparent;
   border-radius: 0;
   border: 1px solid #FFFFFF;
+  color: #FFFFFF;
   font-size: 22px;
   font-weight: lighter;
   letter-spacing: 1px;
@@ -13,4 +14,28 @@
     border: 1px solid $color__theme;
     transition: $duration--sm;
   }
+<<<<<<< Updated upstream
 }
+=======
+}
+
+.btn {
+  // letter-spacing: 0px;
+  // opacity: 0.6;
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid $color__theme;
+  color: $color__theme;
+  font-size: 18px;
+  font-weight: lighter;
+  margin: 30px 0 0 0;
+  padding: 8px 40px 9px;
+  transition: $duration--sm;
+  &:hover {
+    opacity: 1;
+    background-color: $color__theme;
+    border: 1px solid $color__theme;
+    transition: $duration--sm;
+  }
+}
+>>>>>>> Stashed changes
