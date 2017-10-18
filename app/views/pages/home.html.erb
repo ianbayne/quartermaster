@@ -4,20 +4,24 @@
     <h1>QuarterMaster</h1>
     <p>Book unique camping gear and experience the outback</p>
 
-    <%= link_to "Sign-up", new_user_registration_path, {class: "btn btn-primary btn-lg"} %>
+    <!-- TEMPORARY WILL DEL LATER / by Shun -->
+    <%#= link_to "Sign-up", new_user_registration_path, {class: "btn btn-primary btn-lg"} %>
+
+    <%= form_tag root_path, :method => 'get', id: 'banner__search', class: 'form-group', label_html: { class:'form-inline' } do %>
+    <i class="fa fa-search banner__search_icon"></i>
+    <%= text_field_tag :search, params[:search], placeholder: "Search with Equipment Name ", id: "search_query", class: "form-control", label_html: { class: 'my_class' } %>
+    <%= submit_tag "Search", :name => nil, :style => 'display: none' %>
+    <% end %>
 
   </div>
 </div>
 
-<%#= simple_form_for(@equipment) do |f| %> <!-- Needs instance of equipment to work -->
-  <%#= f.input :name, placeholder: "&#xf002; Try \"2 person camping tent\"" %>
-  <%#= f.submit "Search" %>
-<%# end %>
 <!-- TEMPORARY DUMMY -->
 <!-- <div class="text-center dummy-box">
   <p>[!!] Search form here [!!]</p>
 </div>
  -->
+
 <div class="container spacer_up_down">
   <div class="row">
     <div class="card__container col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
@@ -27,7 +31,7 @@
     <% else %>
     <h2>No Matching Result</h2>
     <% end %>
-    
+
     <% @equipment.each do |equipment| %>
       <% unless equipment.contracts.exists? %>
         <%= link_to equipment_path(equipment), class: "" do%>
