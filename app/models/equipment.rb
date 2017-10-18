@@ -1,6 +1,6 @@
 class Equipment < ApplicationRecord
   belongs_to :user
-  has_many :contracts
+  has_many :contracts, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
   def self.search(search) #self. to set class method
