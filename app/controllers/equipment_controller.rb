@@ -14,12 +14,12 @@ class EquipmentController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @equipment = @user.equipment.build(equipment_params)
     @equipment.user = @user
 
     if @equipment.save
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       render :new
     end
@@ -30,16 +30,16 @@ class EquipmentController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     @equipment = Equipment.find(params[:id])
     @equipment.update(equipment_params)
-    redirect_to user_path(@user)
+    redirect_to user_path(current_user)
   end
 
   def destroy
     @equipment = Equipment.find(params[:id])
     @equipment.destroy
-    redirect_to user_path(@user)
+    redirect_to user_path(current_user)
   end
 
   private
