@@ -2,6 +2,7 @@
 
 <h3>The equipment you want to lend:</h3>
 <ul>
+  <h2>Your Equipment For Rent:</h2>
   <% @user.equipment.each do |equipment| %>
     <li>
       <%= equipment.name %>
@@ -14,4 +15,15 @@
   <% end %>
 </ul>
 
-<%= link_to "Create new equipment", new_user_equipment_path(@user) %>
+<ul>
+  <h2>Your Equipment Bookings:</h2>
+  <% @contracts.each do |contract| %>
+    <li>
+      <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
+      <p><%= contract.start_time %> - <%= contract.end_time %></p>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Add equipment for rent", new_user_equipment_path(@user) %>
