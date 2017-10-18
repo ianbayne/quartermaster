@@ -1,1 +1,32 @@
 <h2>Profile page for User ID:<%= @user.id %></h2>
+
+<h2>Your Equipment For Rent:</h2>
+<ul>
+  <% @user.equipment.each do |equipment| %>
+    <li>
+      <%= equipment.name %>
+      <%= cl_image_tag equipment.photo %>
+      <%= link_to "Edit", edit_user_equipment_path(@user, equipment) %>
+
+
+      <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% end %>
+
+
+    </li>
+  <% end %>
+</ul>
+
+<ul>
+  <h2>Your Equipment Bookings:</h2>
+  <% @contracts.each do |contract| %>
+    <li>
+      <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
+      <p><%= contract.start_time %> - <%= contract.end_time %></p>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Add equipment for rent", new_user_equipment_path(@user) %>
