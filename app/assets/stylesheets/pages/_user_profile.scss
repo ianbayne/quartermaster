@@ -5,6 +5,44 @@
 .profile__card--case h4 {
   margin: 0 0 20px 0;
 }
+.profile__card--text h4 {
+  margin: 0;
+}
 .profile__card--item {
-  box-shadow: 1px 1px 2px $color__theme--alpha25;
+  -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  // background-color: rgba(30, 74, 52, 0.05);
+  align-items: center;
+  border-radius: 0;
+  box-shadow: 2px 3px 2px $color__theme--alpha25, 0 0 3px $color__theme--alpha25;
+  display: flex;
+  height: 130px;
+  margin: 0 0 20px 0;
+  overflow: hidden;
+  padding: 24px;
+  position: relative;
+  transition-duration: $duration--sm;
+  &:hover {
+    -webkit-transform: translateZ(0) scale(1.005, 1.005);
+    // height: 101%;
+    // transform: scale(1.005);
+    // transform: translate(-0.5%, -0.5%);
+    // width: 101%;
+    box-shadow: 3px 3px 6px $color__theme--alpha25;
+    transform: translateZ(0) scale(1.005, 1.005);
+    transition-duration: $duration--sm;
+  }
+}
+.profile__card--photo {
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  height: 90px;
+  left: 24px;
+  position: absolute;
+  top: 20px;
+  width: 90px;
+}
+.profile__card--text {
+  margin: 0 0 0 104px;
 }
