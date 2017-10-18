@@ -21,6 +21,8 @@
     <div class="card__container col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 
     <% @equipment.each do |equipment| %>
+
+
       <%= link_to equipment_path(equipment), class: "" do%>
         <div class="card col-xs-6 col-sm-4 col-md-4" style="background-image: url('<%= cl_image_path equipment.photo, crop: :fill %>');">
           <div class="card__overlay">
@@ -38,6 +40,9 @@
           </div>
         </div>
       <% end %>
+
+
+
     <% end %>
 
     </div>
