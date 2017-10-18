@@ -10,7 +10,7 @@ require 'faker'
 
 puts "Making seeds"
 
-6.times do
+30.times do
   user = User.create(email: Faker::Internet.email, password: "123456")
 
   adjective = %w(new old crappy like-new).sample
@@ -18,19 +18,29 @@ puts "Making seeds"
   equipment = Equipment.new(name: "#{adjective} #{category}", 
                             description: Faker::Lorem.sentence, 
                             category: category,
-                            price: (1..100).to_a.sample )
+                            price: (1..100).to_a.sample)
   equipment.user = user
-  url = "https://images-na.ssl-images-amazon.com/images/I/41MqlCTWx8L._SL500_AC_SS350_.jpg"
+
+  if category == 'tent'
+    url = "http://image-photos.linternaute.com/image_photo/640/camping-sauvage-1297554046-1337332.jpg"
+  elsif category == "stove"
+    url = "http://geared.jp/wp-content/uploads/2014/01/20140120_Vertex.jpg"
+  elsif category == "cooking goods"
+    url = "http://www.biz-garden.com/wp-content/uploads/2016/12/DSCF0678-500x454.jpg"
+  else
+    url = "http://www.coleman.eu/IT/images/Category/large/523.jpg"
+  end
+      
   equipment.remote_photo_url = url
   equipment.save
 
 
-  contract = Contract.new(start_time: Time.now, end_time: Time.now, price: (1..10_000).to_a.sample)
-  contract.equipment = equipment
-  no_users = User.count
-  random_id = (1..no_users).to_a.sample  # Chance of selecting equipment owned by self, however...
-  contract.user = User.find(random_id)
-  contract.save
+  # contract = Contract.new(start_time: Time.now, end_time: Time.now, price: (1..10_000).to_a.sample)
+  # contract.equipment = equipment
+  # no_users = User.count
+  # random_id = (1..no_users).to_a.sample  # Chance of selecting equipment owned by self, however...
+  # contract.user = User.find(random_id)
+  # contract.save
 end
 
 
