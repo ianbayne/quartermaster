@@ -4,6 +4,7 @@
   <%= f.input :name %>
   <%= f.input :description, as: :text %>
   <%= f.input :category%>
+  <%= f.input :price %>
   <%= cl_image_tag @equipment.photo.url if @equipment.photo.present? %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>

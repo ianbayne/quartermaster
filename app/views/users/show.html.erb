@@ -6,7 +6,9 @@
     <li>
       <%= equipment.name %>
       <%= cl_image_tag equipment.photo %>
-      <%= link_to "Edit", edit_user_equipment_path(@user, equipment) %>
+      <%= link_to edit_user_equipment_path(@user, equipment) do %>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <% end %>
 
 
       <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
