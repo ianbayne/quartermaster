@@ -1,4 +1,4 @@
-.btn {
+.banner-content > .btn {
   background-color: transparent;
   border-radius: 0;
   border: 1px solid #FFFFFF;
@@ -14,9 +14,6 @@
     border: 1px solid $color__theme;
     transition: $duration--sm;
   }
-<<<<<<< Updated upstream
-}
-=======
 }
 
 .btn {
@@ -38,4 +35,3 @@
     transition: $duration--sm;
   }
 }
->>>>>>> Stashed changes
