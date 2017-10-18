@@ -5,17 +5,29 @@
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
+    <!-- Partial match with equipment name, Logic is in Equipment model, controller  -->
+    <%= form_tag root_path, 
+      :method => 'get',
+      lass: 'form-group', label_html: { class:'form-inline' } do %>
+        <%= text_field_tag :search,
+        params[:search], placeholder: "Search with Equipment Name ",
+        id: "search_query",
+        class: "form-control",
+        label_html: { class: 'my_class' } %>
+        <%= submit_tag "Search", :name => nil, :style => 'display: none' %>
+    <% end %>
 
     <!-- Line below is for reference in the future -->
     <%#= simple_form_for :search, url: user_equipment_index_path(current_user), :method => :get, label_html: { class:'form-inline' } do |f| %>
-
-    <!-- Line below is a search bar that is currently disabled -->
-    <%= simple_form_for :search, :method => :get, label_html: { class:'form-inline' } do |f| %>
-      <%= f.input :query, required: false, label: false, label_html: { class: 'my_class' }, placeholder: "Try \"2 person camping tent\"" %>
-      <%= f.submit "Search", :name => nil, :style => 'display: none' %>
-    <% end %>
     <%#= text_field_tag :search, params[:search], placeholder: "Try \"2 person camping tent\"" %>
     <%#= submit_tag "Search", :name => nil, :style => 'visibility: hidden' %>
+
+    <!-- Line below is a search bar that is currently disabled -->
+    <%#= simple_form_for :search, :method => :get, label_html: { class:'form-inline' } do |f| %>
+      <%#= f.input :query, required: false, label: false, label_html: { class: 'my_class' }, placeholder: "Try \"2 person camping tent\"" %>
+      <%#= f.submit "Search", :name => nil, :style => 'display: none' %>
+    <%# end %>
+
   </div>
 
   <!-- Right Navigation -->
@@ -71,4 +83,5 @@
     </div>
   </div> -->
 </div>
+
 
