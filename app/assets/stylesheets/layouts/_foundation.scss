@@ -1,0 +1,32 @@
+body {
+  background-color: #FFFFFF;
+  // height: 100%;
+  // min-height: 100%;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+.container {
+  min-height: calc(100vh - 110px);
+}
+.display__flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.image-frame--wh400 {
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 400px;
+}
+.spacer_up_down {
+  padding: 50px 0 50px 0;
+}
+.text-frame--wh400 {
+  height: 400px;
+  width: 400px;
+}
+.width__100 {
+  width: 100%;
+}
