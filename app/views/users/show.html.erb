@@ -25,7 +25,7 @@
   <% @contracts.each do |contract| %>
     <li>
       <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
-      <p><%= contract.start_time %> - <%= contract.end_time %></p>
+      <p><%= contract.start_time.strftime("%b %d, %Y") %> - <%= contract.end_time.strftime("%b %d, %Y") %></p>
     </li>
   <% end %>
 </ul>
