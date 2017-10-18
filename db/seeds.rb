@@ -34,7 +34,6 @@ puts "Making seeds"
   equipment.remote_photo_url = url
   equipment.save
 
-
   # contract = Contract.new(start_time: Time.now, end_time: Time.now, price: (1..10_000).to_a.sample)
   # contract.equipment = equipment
   # no_users = User.count
