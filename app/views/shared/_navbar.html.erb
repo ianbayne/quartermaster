@@ -6,7 +6,7 @@
       <%= image_tag "logo.png" %>
     <% end %>
     <!-- Partial match with equipment name, Logic is in Equipment model, controller  -->
-    <%= form_tag root_path,
+    <%= form_tag root_path(anchor: 'search_result'),
       :method => 'get',
       class: 'form-group', label_html: { class:'form-inline' } do %>
         <%= text_field_tag :search,
