@@ -23,7 +23,7 @@
       <div>
         <p class=""><%= @equipment.name %></p>
         <p class="">Category: <%= @equipment.category %></p>
-        <p class="">Price: $<%= @equipment.price %></p>
+        <p class="">Price: $<%= @equipment.price %> / day</p>
         <p class="">Description: <%= @equipment.description %></p>
         <%= link_to "Book this equipment", new_equipment_contract_path(@equipment), class: "btn btn-primary" %>
       </div>
