@@ -1,34 +1,40 @@
-<h2>Profile page for User ID:<%= @user.id %></h2>
 
-<h2>Your Equipment For Rent:</h2>
-<ul>
-  <% @user.equipment.each do |equipment| %>
-    <li>
-      <%= equipment.name %>
-      <%= cl_image_tag equipment.photo %>
-      <%= link_to edit_user_equipment_path(@user, equipment) do %>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      <% end %>
+<div class="container spacer_up_down">
 
+  <div class="row">
+    <h2 class="col-sm-12">Welcome back! <%= @user.first_name %></h2>
+  </div>
 
-      <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
-      <% end %>
+  <div class="row spacer_up_down">
+    <div class="col-xs-12 col-sm-12 col-md-8 profile__card--case">
+      <h4>Your Equipment Bookings:</h4>
+      <ul class="equipment__user--list">
+        <% @contracts.each do |contract| %>
+          <li class="profile__card--item">
+            <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
+            <p><%= contract.start_time %> - <%= contract.end_time %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
+    <div class="col-xs-12 col-sm-12 col-md-4 profile__card--case">
+      <h4>Your Equipment For Rent:</h4>
+      <ul>
+        <% @user.equipment.each do |equipment| %>
+          <li class="profile__card--item debug">
+            <%= equipment.name %>
+            <%= cl_image_tag equipment.photo %>
+            <%= link_to "Edit", edit_user_equipment_path(@user, equipment) %>
+            <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "Add equipment for rent", new_user_equipment_path(@user) %>
+    </div>
+  </div>
 
-    </li>
-  <% end %>
-</ul>
+</div>
 
-<ul>
-  <h2>Your Equipment Bookings:</h2>
-  <% @contracts.each do |contract| %>
-    <li>
-      <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
-      <p><%= contract.start_time.strftime("%b %d, %Y") %> - <%= contract.end_time.strftime("%b %d, %Y") %></p>
-    </li>
-  <% end %>
-</ul>
-
-
-<%= link_to "Add equipment for rent", new_user_equipment_path(@user) %>
