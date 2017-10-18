@@ -21,24 +21,25 @@
     <div class="card__container col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 
     <% @equipment.each do |equipment| %>
+      <% unless equipment.contracts.exists? %>
+        <%= link_to equipment_path(equipment), class: "" do%>
+          <div class="card col-xs-6 col-sm-4 col-md-4" style="background-image: url('<%= cl_image_path equipment.photo, crop: :fill %>');">
+            <div class="card__overlay">
+              <div class="card__text--container">
+                <p class="equipment__name">
+                  <%= equipment.name %>
+                </p>
+                <p class="equipment__category">
+                  <%= equipment.category %>
+                </p>
+                <p class="equipment__price">
+                  <%#= equipment.price %>
+                </p>
+              </div>
 
-
-      <%= link_to equipment_path(equipment), class: "" do%>
-        <div class="card col-xs-6 col-sm-4 col-md-4" style="background-image: url('<%= cl_image_path equipment.photo, crop: :fill %>');">
-          <div class="card__overlay">
-            <div class="card__text--container">
-              <p class="equipment__name">
-                <%= equipment.name %>
-              </p>
-              <p class="equipment__category">
-                <%= equipment.category %>
-              </p>
-              <p class="equipment__price">
-                <%#= equipment.price %>
-              </p>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
 
