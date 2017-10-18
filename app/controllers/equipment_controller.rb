@@ -37,10 +37,9 @@ class EquipmentController < ApplicationController
   end
 
   def destroy
-    # @user = User.find(params[:id])
-    # @equipment = Equipment.find(params[:id])
-    # @equipment.destroy
-    # redirect_to user_path(@user)
+    @equipment = Equipment.find(params[:id])
+    @equipment.destroy
+    redirect_to user_path(@user)
   end
 
   private
