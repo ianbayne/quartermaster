@@ -10,17 +10,44 @@ require 'faker'
 
 puts "Making seeds"
 
-30.times do
-  user = User.create(email: Faker::Internet.email, password: "123456")
+User.destroy_all
+Equipment.destroy_all
+Contract.destroy_all
 
+user_num = 5
+equipment_num = 15
+
+tokyo_wards = [
+  "Adachi", "Arakawa", "Bunkyo", "Chiyoda", "Chuo", "Edogawa", 
+  "Itabashi", "Katsushika", "Kita", "Kōtō", "Meguro", "Minato", "Nakano", "Nerima", 
+  "Ota", "Setagaya", "Shibuya", "Shinagawa", "Shinjuku", "Suginami", "Sumida", 
+  "Taito", "Toshima"
+]
+
+puts "Seeding #{user_num} users"
+i = 1
+user_num.times do
+  user = User.create(
+    first_name: "first_name#{i}", last_name: "last_name#{i}",
+    user_name: "user_name#{i}", location: tokyo_wards.sample,
+    email: "test#{i}@mail.com", password: "123456")
+  i+=1
+end
+puts "User seeds finished!"
+
+
+puts "Seeding #{equipment_num} equipments"
+puts "Some of them might be caught by google map API call limit."
+equipment_num.times do
   adjective = %w(new old crappy like-new).sample
   category = ["tent", "stove", "cooking goods", "sleeping bag"].sample
   equipment = Equipment.new(name: "#{adjective} #{category}", 
                             description: Faker::Lorem.sentence, 
                             category: category,
                             price: (1..100).to_a.sample)
-  equipment.user = user
-
+  # assign random user to equipment
+  equipment.user = User.where('id >= ?', rand((User.first.id)..(User.last.id))).first
+  
   if category == 'tent'
     url = "http://image-photos.linternaute.com/image_photo/640/camping-sauvage-1297554046-1337332.jpg"
   elsif category == "stove"
@@ -32,7 +59,11 @@ puts "Making seeds"
   end
       
   equipment.remote_photo_url = url
-  equipment.save
+  
+  # by default equipment inherit address from user
+  # equipment address should be manually overwritten
+  equipment.address = equipment.user.location
+  equipment.save!
 
   # contract = Contract.new(start_time: Time.now, end_time: Time.now, price: (1..10_000).to_a.sample)
   # contract.equipment = equipment
@@ -41,7 +72,5 @@ puts "Making seeds"
   # contract.user = User.find(random_id)
   # contract.save
 end
+puts "Equipment seeds finished!"
 
-
-
-puts "Seeds finished!"

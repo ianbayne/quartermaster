@@ -3,7 +3,12 @@ class EquipmentController < ApplicationController
     @equipment = Equipment.find(params[:id])
     @contract = Contract.new
     @equipment_coordinates = { 
-      lat: @equipment.latitude, lng: @equipment.longitude }
+      lat: @equipment.latitude, 
+      lng: @equipment.longitude }
+    @hash = Gmaps4rails.build_markers(@equipment) do |equipment, marker|
+      marker.lat(@equipment_coordinates[:lat])
+      marker.lng(@equipment_coordinates[:lng])
+    end
   end
 
   def index
