@@ -1,39 +1,55 @@
 
+
 <div class="container spacer_up_down">
-
   <div class="row">
-    <h2 class="col-sm-12">Welcome back! <%= @user.first_name %></h2>
-  </div>
-
-  <div class="row spacer_up_down">
-    <div class="col-xs-12 col-sm-12 col-md-8 profile__card--case">
-      <h4>Your Equipment Bookings:</h4>
-      <ul class="equipment__user--list">
-        <% @contracts.each do |contract| %>
-          <li class="profile__card--item">
-            <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
-            <p><%= contract.start_time %> - <%= contract.end_time %></p>
-            <p>Total Payment Due: $<%= contract.price %></p>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-4 profile__card--case">
-      <h4>Your Equipment For Rent:</h4>
-      <ul>
-        <% @user.equipment.each do |equipment| %>
-          <li class="profile__card--item debug">
-            <%= equipment.name %>
-            <%= cl_image_tag equipment.photo %>
-            <%= link_to "Edit", edit_user_equipment_path(@user, equipment) %>
-            <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
-              <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+      <div class="row">
+        <h2 class="col-xs-12 col-sm-12 col-md-12">Welcome back! <%= @user.first_name %></h2>
+      </div>
+      
+      <div class="row spacer_up_down">
+        <div class="col-xs-12 col-sm-12 col-md-8 profile__card--case">
+          <h4>Your Equipment Bookings:</h4>
+          <ul class="equipment__user--list">
+            <% @contracts.each do |contract| %>
+              <li class="profile__card--item">
+                <div class="profile__card--photo" style="background-image: url('<%= cl_image_path contract.equipment.photo, crop: :fill %>');">
+                </div>
+                <div class="profile__card--text">
+                  <!-- FIX THE FOLLOWING H4 TO WRAP AROUND THE CARD -->
+                  <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
+                  <p><%= contract.start_time %> - <%= contract.end_time %></p>
+                  <p>Total Payment Due: $<%= contract.price %></p>
+                </div>
+              </li>
             <% end %>
-          </li>
-        <% end %>
-      </ul>
-      <%= link_to "Add equipment for rent", new_user_equipment_path(@user) %>
+          </ul>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-4 profile__card--case">
+          <h4>Your Equipment For Rent:</h4>
+          <ul class="equipment__user--list">
+            <% @user.equipment.each do |equipment| %>
+              <li class="profile__card--item">
+                <div class="profile__card--photo" style="background-image: url('<%= cl_image_path equipment.photo, crop: :fill %>');">
+                </div>
+                <div class="profile__card--text">
+                  <h4><%= equipment.name %></h4>
+                  <%= link_to "Edit", edit_user_equipment_path(@user, equipment) %>
+                  <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </div>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <div class="profile__card--item">
+            <%= link_to "Add equipment for rent", new_user_equipment_path(@user) %>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 
