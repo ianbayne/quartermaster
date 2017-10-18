@@ -3,7 +3,9 @@
   <div class="banner-content">
     <h1>QuarterMaster</h1>
     <p>Book unique camping gear and experience the outback</p>
-    <%= link_to "Sign Up", new_user_session_path, class: "btn btn-primary btn-lg" %>
+
+    <%= link_to "Sign-up", new_user_registration_path, {class: "btn btn-primary btn-lg"} %>
+
   </div>
 </div>
 
@@ -12,32 +14,44 @@
   <%#= f.submit "Search" %>
 <%# end %>
 <!-- TEMPORARY DUMMY -->
-<div class="text-center dummy-box">
+<!-- <div class="text-center dummy-box">
   <p>[!!] Search form here [!!]</p>
 </div>
-
+ -->
 <div class="container spacer_up_down">
   <div class="row">
     <div class="card__container col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 
+    <% if @equipment.length > 0 %>
+    <h2>Equipment Available</h2>
+    <% else %>
+    <h2>No Matching Result</h2>
+    <% end %>
+    
     <% @equipment.each do |equipment| %>
-      <%= link_to equipment_path(equipment), class: "" do%>
-        <div class="card col-xs-6 col-sm-4 col-md-4" style="background-image: url('<%= cl_image_path equipment.photo, crop: :fill %>');">
-          <div class="card__overlay">
-            <div class="card__text--container">
-              <p class="equipment__name">
-                <%= equipment.name %>
-              </p>
-              <p class="equipment__category">
-                <%= equipment.category %>
-              </p>
-              <p class="equipment__price">
-                <%#= equipment.price %>
-              </p>
+      <% unless equipment.contracts.exists? %>
+        <%= link_to equipment_path(equipment), class: "" do%>
+          <div class="card col-xs-6 col-sm-4 col-md-4" style="background-image: url('<%= cl_image_path equipment.photo, crop: :fill %>');">
+            <div class="card__overlay">
+              <div class="card__text--container">
+                <p class="equipment__name">
+                  <%= equipment.name %>
+                </p>
+                <p class="equipment__category">
+                  <%= equipment.category %>
+                </p>
+                <p class="equipment__price">
+                  <%#= equipment.price %>
+                </p>
+              </div>
+
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
+
+
+
     <% end %>
 
     </div>

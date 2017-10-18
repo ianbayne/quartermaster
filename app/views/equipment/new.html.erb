@@ -1,3 +1,4 @@
+
 <div class="container spacer_up_down">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
@@ -9,7 +10,7 @@
         <%= f.input :name %>
         <%= f.input :description, as: :text %>
         <%= f.input :category%>
-        <%= f.input :price%>
+        <%= f.input :price, label: "Price per day" %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.button :submit, class: "btn btn-primary" %>
@@ -17,3 +18,4 @@
     </div>
   </div>
 </div>
+

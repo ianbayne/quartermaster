@@ -1,14 +1,13 @@
 
+
 <div class="container spacer_up_down">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
-
       <div class="row">
         <h2 class="col-xs-12 col-sm-12 col-md-12">Welcome back! <%= @user.first_name %></h2>
       </div>
-
+      
       <div class="row spacer_up_down">
-
         <div class="col-xs-12 col-sm-12 col-md-8 profile__card--case">
           <h4>Your Equipment Bookings:</h4>
           <ul class="equipment__user--list">
@@ -20,6 +19,7 @@
                   <!-- FIX THE FOLLOWING H4 TO WRAP AROUND THE CARD -->
                   <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
                   <p><%= contract.start_time %> - <%= contract.end_time %></p>
+                  <p>Total Payment Due: $<%= contract.price %></p>
                 </div>
               </li>
             <% end %>
@@ -52,4 +52,6 @@
 
     </div>
   </div>
+
 </div>
+
