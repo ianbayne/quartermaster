@@ -6,6 +6,9 @@ body {
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
+.debug {
+  border: 1px dashed red;
+}
 .container {
   min-height: calc(100vh - 110px);
 }
