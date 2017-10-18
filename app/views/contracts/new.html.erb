@@ -1,11 +1,22 @@
-<h2>Rent <%= @equipment.name %></h2>
-<h2>Price per Day $<%= @equipment.price %></h2>
 
-<%= simple_form_for([@equipment, @contract]) do |f| %>
-  <%#= f.error_notification %>
-  <%= f.input :start_time, as: :date %>
-  <%= f.input :end_time, as: :date %>
-  <%= f.input :user_id, input_html: { value: current_user.id }, as: :hidden %>
+<div class="container spacer_up_down">
+  <div class="row">
 
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>     
+    <div class="col-xs-12 col-sm-6 col-md-6 text-center">
+      <%= cl_image_tag @equipment.photo, height: 300, width: 400, crop: :fill %>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 text-center">
+      <h4>Rent <%= @equipment.name %></h4>
+      <p>Price per Day $<%= @equipment.price %></p>
+      <%= simple_form_for([@equipment, @contract]) do |f| %>
+        <%#= f.error_notification %>
+        <%= f.input :start_time, as: :date %>
+        <%= f.input :end_time, as: :date %>
+        <%= f.input :user_id, input_html: { value: current_user.id }, as: :hidden %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
