@@ -1,28 +1,91 @@
+#banner__search {
+  position: relative;
+  margin: 40px 0 0 0;
+  display: inline-block;
+  width: 85%;
+  & #search_query {
+    background-color: transparent;
+    border-radius: 50px;
+    border: 1px solid #FFFFFF;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: lighter;
+    height: auto;
+    letter-spacing: 1px;
+    margin: 0 auto;
+    padding: 3px 18px 5px 56px;
+    transition-duration: $duration--sm;
+    &::placeholder {
+      color: rgba(255,255,255,0.8);
+    }
+    &:focus {
+      background-color: rgba(0,0,0,0.6);
+      border: 1px solid rgba(0,0,0,0);
+      box-shadow: none;
+      transition-duration: $duration--sm;
+    }
+  }
+}
+// NON PRIORITY RETURN LATER
+// #banner__scroll-down {
+//   content: "+";
+
+// }
 .banner {
   align-items: center;
-  background-image: linear-gradient(-225deg, $color__theme--alpha50 0%, $color__theme--alpha50 50%), image-url("camping-equipment-stock-today-151002-tease_c7fdee384de58767cfca8eb8d8bc3621.jpg");
-  background-size: cover !important;
-  color: white;
   display: flex;
-  height: calc(100vh - 70px);
-  justify-content: left;
-  padding: 0px 70px 120px;
+  justify-content: center;
+  background-size: cover !important;
+  background-blend-mode: hard-light;
+  color: white;
+  height: 100vh;
+  & h1 {
+    font-size: 150px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 0.7;
+  }
+  & p {
+    font-size: 30px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 16px 0 12px 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
-
-.banner h1 {
-  font-size: 114px;
-  font-weight: 100;
-  letter-spacing: -1.5px;
-  margin: 0;
-  line-height: 0.8;
+.banner-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: calc(100% - 40px);
+  height: calc(100% - 34px);
+  border: 2px solid #FFFFFF;
+  & > .btn {
+    background-color: transparent;
+    border-radius: 0;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    padding: 8px 56px 9px;
+    transition: $duration--sm;
+    &:hover {
+      background-color: $color__theme;
+      // background-color: $color__theme--alpha75;
+      border: 1px solid $color__theme;
+      transition: $duration--sm;
+    }
+  }
 }
-.banner p {
-  font-size: 28px;
-  font-weight: 100;
+.banner__search_icon {
   color: #FFFFFF;
-  opacity: 0.75;
-  margin: 8px 0 12px 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  letter-spacing: -0.5px;
+  font-size: 30px;
+  left: 20px;
+  position: absolute;
+  position: absolute;
+  top: 10px;
 }

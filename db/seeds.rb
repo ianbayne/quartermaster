@@ -17,12 +17,7 @@ Contract.destroy_all
 user_num = 5
 equipment_num = 15
 
-tokyo_wards = [
-  "Adachi", "Arakawa", "Bunkyo", "Chiyoda", "Chuo", "Edogawa", 
-  "Itabashi", "Katsushika", "Kita", "Kōtō", "Meguro", "Minato", "Nakano", "Nerima", 
-  "Ota", "Setagaya", "Shibuya", "Shinagawa", "Shinjuku", "Suginami", "Sumida", 
-  "Taito", "Toshima"
-]
+tokyo_wards = User::LOCATION
 
 puts "Seeding #{user_num} users"
 i = 1
