@@ -1,3 +1,7 @@
+#logo_svg {
+  height: 50px;
+  fill: $color__theme;
+}
 #navbar__home {
   background: transparent;
   left: 0;
@@ -68,7 +72,7 @@ div.navbar-wagon {
 
 /* Main navbar */
 .navbar-wagon {
-  // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: #FFFFFF;
   transition: all 0.3s ease;
   height: 70px;
@@ -79,8 +83,10 @@ div.navbar-wagon {
 }
 
 /* Logo */
-.navbar-wagon-brand img {
+.navbar-wagon-brand {
   height: 50px;
+  font-size: 0;
+  line-height: 0;
 }
 
 /* User Avatar */
