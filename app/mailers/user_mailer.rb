@@ -7,10 +7,11 @@ class UserMailer < ApplicationMailer
   #
   def welcome(user)
     @user = user
+    # @body[:user] = user_object
 
     mail(
       to: @user.email,
-      subject: "To change later"
+      subject: "Welcome to QuarterMaster"
     )
   end
 end

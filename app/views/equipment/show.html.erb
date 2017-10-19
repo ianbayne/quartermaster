@@ -1,23 +1,31 @@
-<div class="container spacer_up_down display__flex-center">
+<%= render 'shared/navbar' %>
+<div id="show_equipment" class="container spacer_up_down display__flex-center">
   <div class="row width__100">
-    <div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 image-frame--wh400" style="background-image: url(<%= cl_image_path @equipment.photo, crop: :fill %>)">
+
+    <div class="col-xs-12 col-sm-5 col-md-5">
+      <div class="equipment__text-frame">
+        <div>
+          <h3>Equipment</h3>
+          <div class="equipment__image-frame" style="background-image: url(<%= cl_image_path @equipment.photo, crop: :fill %>)">
+          </div>
+          <h3 class="light"><%= @equipment.name %></h3>
+          <h3 class="light"><span class="subtext price__position-adj">$ </span><%= @equipment.price %><span class="subtext--gray"> / per day</span></h3 class="price">
+          <h3 class="subtext--gray">Owner: <%= @equipment.user.user_name %></h3>
+        </div>
+        <div class="equipment__text-frame--detail">
+          <p class=""><%= @equipment.description %> Ready to get out of town and head into nature? Get away from the distractions and plan your next camping trip. Quarter Master's Outfitters and Pro Staff members provide tips on what camping products are best for your needs and can help to make your next camping trip the best yet.</p>
+        </div>
+        <%= link_to "Book this equipment", new_equipment_contract_path(@equipment), class: "btn btn-primary" %>
+      </div>
     </div>
-    
-    <div class="col-xs-12 col-sm-5 col-md-5 display__flex-center text-frame--wh400">
-      <div>
-        <p>This Item is Hosted by <%= @equipment.user.user_name %></p>
+
+    <div class="col-xs-12 col-sm-7 col-md-7">
         <% if @equipment.address && @equipment.latitude && @equipment.longitude %>
-        <p>Location for Picking up</p>
+        <h3>Pick up location</h3>
         <% else %>
         <p>No pickup location. Please contact the owner.</p>
         <% end %>
-        <div id="map" style="width: 100%; height: 200px"></div>
-        <p class=""><%= @equipment.name %></p>
-        <p class="">Category: <%= @equipment.category.capitalize %></p>
-        <p class="">Price: $<%= @equipment.price %> / day</p>
-        <p class="">Description: <%= @equipment.description %></p>
-        <%= link_to "Book this equipment", new_equipment_contract_path(@equipment), class: "btn btn-primary" %>
-      </div>
+        <div id="map" style="width: 100%;"></div>
     </div>
   </div>
 </div>
@@ -26,7 +34,279 @@
   <script>
     const loadGoogleMap = () => {
       let handler = Gmaps.build('Google')
-      handler.buildMap({ internal: { id: 'map' }}, () => {
+      handler.buildMap({
+        provider: {
+          styles: [
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "saturation": 36
+            },
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 40
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            },
+            {
+                "weight": 1.2
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.locality",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 20
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 21
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#f3901d"
+            },
+            {
+                "lightness": "10"
+            },
+            {
+                "weight": "0.82"
+            },
+            {
+                "saturation": "100"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 29
+            },
+            {
+                "weight": 0.2
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 18
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#f3901d"
+            },
+            {
+                "lightness": "10"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": "10"
+            },
+            {
+                "color": "#f3901d"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#50b3cf"
+            },
+            {
+                "lightness": "10"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    }
+]
+        },
+        internal: { id: 'map' }}, () => {
         markers = handler.addMarkers(<%= raw @hash.to_json %>)
         handler.bounds.extendWith(markers)
         handler.fitMapToBounds()
@@ -37,9 +317,9 @@
         }
       })
     }
-    loadGoogleMap()    
+    loadGoogleMap()
   </script>
-<% end %>  
+<% end %>
 
 
 

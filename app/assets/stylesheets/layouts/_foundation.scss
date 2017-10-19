@@ -6,6 +6,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 30px 0;
 }
+p {
+  margin: 0 0 0 0;
+}
 $base: 18px;
 h1 {
   font-size: ($base * 4);
@@ -27,6 +30,9 @@ h3 {
   display: flex;
   justify-content: center;
 }
+.display__inline-block {
+  display: inline-block;
+}
 .image-frame--wh400 {
   background-position: center;
   background-repeat: no-repeat;
@@ -37,9 +43,8 @@ h3 {
 .spacer_up_down {
   padding: 80px 0 80px 0;
 }
-.text-frame--wh400 {
-  height: 400px;
-  width: 400px;
+#show_equipment.spacer_up_down, #show_user.spacer_up_down {
+    padding: 40px 0 40px 0;
 }
 .width__100 {
   width: 100%;

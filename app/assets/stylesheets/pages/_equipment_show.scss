@@ -1,0 +1,42 @@
+#show_equipment {
+  h3 {
+    // margin: 0 0 24px 0;
+    text-transform: capitalize;
+    &.light {
+      font-weight: 300;
+      line-height: 1;
+      margin: 0 0 0 0;
+    }
+  }
+  .equipment {
+    &__text-frame {
+      .subtext {
+        font-size: 16px;
+        &--gray {
+          letter-spacing: 1px;
+          text-transform: lowercase;
+          color: $color__font--light;
+          font-size: 16px;
+          font-weight: 300;
+        }
+      }
+      &--detail {
+        clear: both;
+        padding: 14px 0 0 0;
+      }
+    }
+    &__image-frame {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 50%;
+      float: left;
+      margin: 2px 14px 0 0;
+      padding-bottom: 25%;
+      width: 25%;
+    }
+  }
+}
+#map {
+  padding-bottom: 58.3333333333%;
+}

@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
-gem 'mailgun-ruby', '~>1.1.6'
 gem "letter_opener", group: :development
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'faker'
