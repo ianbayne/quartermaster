@@ -23,7 +23,7 @@
 </div>
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
+  <script>
     const loadGoogleMap = () => {
       let handler = Gmaps.build('Google')
       handler.buildMap({ internal: { id: 'map' }}, () => {
@@ -37,8 +37,8 @@
         }
       })
     }
-    loadGoogleMap()
-  <% end %>
+    loadGoogleMap()    
+  </script>
 <% end %>  
 
 
