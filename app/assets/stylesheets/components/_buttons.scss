@@ -1,5 +1,4 @@
 .btn {
-
   // letter-spacing: 0px;
   // opacity: 0.6;
   background-color: transparent;
@@ -11,10 +10,9 @@
   margin: 30px 0 0 0;
   padding: 8px 40px 9px;
   transition: $duration--sm;
-  &:hover {
+  &:hover, &:focus, &:active {
     opacity: 1;
     background-color: $color__theme;
-
     border: 1px solid $color__theme;
     transition: $duration--sm;
   }
