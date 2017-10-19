@@ -6,13 +6,25 @@ url(<%= image_path 'camping-equipment-stock-today-151002-tease_c7fdee384de58767c
     <div>
       <h1>QuarterMaster</h1>
       <p>Book unique camping gear and experience the outback</p>
-      <!-- TEMPORARY WILL DEL LATER / by Shun -->
-      <%#= link_to "Sign-up", new_user_registration_path, {class: "btn btn-primary btn-lg"} %>
-      <%= form_tag root_path, :method => 'get', id: 'banner__search', class: 'form-group', label_html: { class:'form-inline' } do %>
-      <i class="fa fa-search banner__search_icon"></i>
-      <%= text_field_tag :search, params[:search], placeholder: "Search with Equipment Name ", id: "search_query", class: "form-control", label_html: { class: 'my_class' } %>
-      <%= submit_tag "Search", :name => nil, :style => 'display: none' %>
+
+      <%#= form_tag root_path, :method => 'get', id: 'banner__search', class: 'form-group', label_html: { class:'form-inline' } do %>
+      <!-- <i class="fa fa-search banner__search_icon"></i> -->
+      <%#= text_field_tag :search, params[:search], placeholder: "Search with Equipment Name ", id: "search_query", class: "form-control", label_html: { class: 'my_class' } %>
+      <%#= submit_tag "Search", :name => nil, :style => 'display: none' %>
+      <%# end %>
+
+      <%= form_tag root_path(anchor: 'search_result'),
+        :method => 'get', id: 'banner__search',
+        class: 'form-group', label_html: { class:'form-inline' } do %>
+        <i class="fa fa-search banner__search_icon"></i>
+        <%= text_field_tag :search,
+        params[:search], placeholder: "try searching for a tent!",
+        id: "search_query",
+        class: "form-control",
+        label_html: { class: 'my_class' } %>
+        <%= submit_tag "Search", :name => nil, :style => 'display: none' %>
       <% end %>
+
       <!-- NON PRIORITY RETURN LATER / by Shun -->
       <!-- <a id="banner__scroll-down" href="#search_result"></a> -->
     </div>
@@ -30,7 +42,7 @@ url(<%= image_path 'camping-equipment-stock-today-151002-tease_c7fdee384de58767c
     <div class="card__container col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center">
 
     <% if @equipment.length > 0 %>
-    <h2 id="test">Equipment Available</h2>
+    <h2>Equipment Available</h2>
     <% else %>
     <h2>No Matching Result</h2>
     <% end %>
