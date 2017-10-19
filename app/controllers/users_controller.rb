@@ -10,8 +10,14 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    
+    # if equipment.location == @user_previous_location,
+    # equipment is in user default location. so update with latest value.
+    # otherwise, equipment location as is(equipment is in specific location) 
     if @user.update(user_params)
+      @user_equipment = @user.equipment
+      @user_equipment.each do |equipment|
+        equipment.update( { address: @user.location } )
+      end
       flash[:success] = "Your profile was updated correctly."
       redirect_to user_path(@user)
     else
