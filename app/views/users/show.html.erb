@@ -1,70 +1,62 @@
+<%= render 'shared/navbar' %>
+<div id="show_user" class="container spacer_up_down display__flex-center">
+  <div class="row width__100">
+    <div class="col-xs-12 col-sm-12 col-md-12">
 
+          <h3 class="display__inline-block">Hi <span class="user_name"><%= @user.first_name %>!</span> Nice to see you again!</h3>
+          <%= link_to "edit profile", edit_user_path(@user), class: "edit_text display__inline-block" %>
+          <!-- <p>LOCATION TEST:<%#= @user.location %></p> -->
 
-<div class="container spacer_up_down">
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
       <div class="row">
-        <h2 class="col-xs-12 col-sm-12 col-md-12">Welcome back! <%= @user.first_name %></h2>
-        <%= link_to "Edit profile", edit_user_path(@user) %>
-        <p>LOCATION TEST:<%= @user.location %></p>
-      </div>
 
-      <div class="row spacer_up_down">
         <div class="col-xs-12 col-sm-12 col-md-8 profile__card--case">
           <h4>Your Equipment Bookings:</h4>
           <ul class="equipment__user--list">
             <% @contracts.each do |contract| %>
-              <li class="profile__card--item">
-                <div class="profile__card--photo" style="background-image: url('<%= cl_image_path contract.equipment.photo, crop: :fill %>');">
-                </div>
-                <div class="profile__card--text">
-                  <!-- FIX THE FOLLOWING H4 TO WRAP AROUND THE CARD -->
-                  <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
-                  <p><%= contract.start_time.strftime("%b %d %Y") %> - <%= contract.end_time.strftime("%b %d %Y") %></p>
-                  <p>Total Payment Due: $<%= contract.price %></p>
-                </div>
-              </li>
+              <%= link_to equipment_path(contract.equipment), class: "profile__card--item" do %>
+                <li>
+                  <div class="profile__card--photo" style="background-image: url('<%= cl_image_path contract.equipment.photo, crop: :fill %>');">
+                  </div>
+                  <div class="profile__card--text">
+                    <h4><%= contract.equipment.name %></h4>
+                    <p><%= contract.start_time.strftime("%b %d %Y") %> - <%= contract.end_time.strftime("%b %d %Y") %></p>
+                    <p>Total Payment Due: $<%= contract.price %></p>
+                  </div>
+                </li>
+              <% end %>
             <% end %>
           </ul>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-4 profile__card--case">
-          <h4>Your Equipment For Rent:</h4>
+          <div>
+            <h4 class="display__inline-block">Your Equipment For Rent:</h4>
+            <%= link_to "add equipment", new_user_equipment_path(@user), class: "edit_text display__inline-block" %>
+          </div>
           <ul class="equipment__user--list">
             <% @user.equipment.each do |equipment| %>
-              <li class="profile__card--item">
+              <li class="profile__card--your-item">
                 <div class="profile__card--photo" style="background-image: url('<%= cl_image_path equipment.photo, crop: :fill %>');">
                 </div>
                 <div class="profile__card--text">
                   <h4><%= equipment.name %></h4>
 
-                  <!-- Message for Shun: The following "text-decoration: none" should probably be added to the SCSS. I added here just to get it working for the time being. -->
-
-
                   <%= link_to edit_user_equipment_path(@user, equipment), style: "text-decoration: none" do %>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-square-o fa-size--lg" aria-hidden="true"></i>
                   <% end %>
-
-                  <!-- End of message for Shun -->
 
                   <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
-                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <i class="fa fa-trash-o fa-size--lg" aria-hidden="true"></i>
                   <% end %>
-                  <p>TEST: <%= equipment.address %></p>
+                  <!-- <p>TEST: <%= equipment.address %></p> -->
                 </div>
               </li>
             <% end %>
           </ul>
-          <div class="profile__card--item">
-            <%= link_to "Add equipment for rent", new_user_equipment_path(@user) %>
-          </div>
         </div>
-
       </div>
 
     </div>
   </div>
-
 </div>
 
