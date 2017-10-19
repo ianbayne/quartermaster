@@ -30,6 +30,9 @@ h3 {
   display: flex;
   justify-content: center;
 }
+.display__inline-block {
+  display: inline-block;
+}
 .image-frame--wh400 {
   background-position: center;
   background-repeat: no-repeat;
@@ -40,7 +43,7 @@ h3 {
 .spacer_up_down {
   padding: 80px 0 80px 0;
 }
-#show_equipment.spacer_up_down {
+#show_equipment.spacer_up_down, #show_user.spacer_up_down {
     padding: 40px 0 40px 0;
 }
 .width__100 {
