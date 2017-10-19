@@ -15,7 +15,7 @@
         <%= f.input :end_time, as: :date, input_html: {class: "end_time"} %>
         <%= f.input :user_id, input_html: { value: current_user.id }, as: :hidden %>
         <div id="total_payment">Total Payment:</div>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.button :submit, disabled: true, class: "btn btn-primary" %>
       <% end %>
       
     </div>
@@ -26,13 +26,19 @@
 <%= content_for(:after_js) do %>
 <script>
   const start_time = document.querySelectorAll(".start_time")
+  // today is fixed date with the initial date value when page is loaded
+  const today = new Date(start_time[0].value, start_time[1].value-1, start_time[2].value)
   const end_time = document.querySelectorAll(".end_time")
   const all_time = [...start_time, ...end_time]
   const total_payment = document.querySelector("#total_payment")
-  // console.log(start_time)
-  // console.log(end_time)
-  // console.log(all_time)
-  // console.log(total_payment)
+  const contractButton = document.querySelector(".btn.btn-primary")
+
+  console.log(start_time)
+  console.log(end_time)
+  console.log(today)
+  console.log(all_time)
+  console.log(total_payment)
+  console.log(contractButton)
 
   all_time.forEach((time, i ) => {
     time.addEventListener("change",(e) => {
@@ -45,18 +51,26 @@
       const end_month = end_time[1].value
       const end_day = end_time[2].value
       const equipment_price = <%= @equipment.price %>
+
       console.log(equipment_price)
+
       const start_date = new Date(start_year, start_month-1, start_day);
       const end_date = new Date(end_year, end_month-1, end_day);
-      const duration_day = (end_date - start_date) / 86400000
-      console.log(duration_day)
 
-      if (duration_day > 0) {
-        console.log("end_time is later than start_time")
+      const duration_day = (end_date - start_date) / 86400000
+      const start_date_check = (start_date >= today)
+
+      console.log(duration_day)
+      console.log(start_date_check)
+
+      if (start_date_check && duration_day > 0) {
+        console.log("start_date is later or equal to today + at least 1day duration")
         total_payment.innerHTML = `${duration_day} days of rent,
         Total Payment: \$${equipment_price * duration_day}`
+        contractButton.removeAttribute("disabled")
       } else {
         total_payment.innerHTML = `Please review your date input.`
+        contractButton.setAttribute("disabled", "true")
       }
     });  
   })
