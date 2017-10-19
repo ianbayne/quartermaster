@@ -4,7 +4,17 @@ body {
   // min-height: 100%;
 }
 h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
+  margin: 0 0 30px 0;
+}
+$base: 18px;
+h1 {
+  font-size: ($base * 4);
+}
+h2 {
+  font-size: ($base * 3);
+}
+h3 {
+  font-size: ($base * 2);
 }
 .debug {
   border: 1px dashed red;
@@ -24,7 +34,7 @@ h1, h2, h3, h4, h5, h6, p {
   width: 400px;
 }
 .spacer_up_down {
-  padding: 50px 0 50px 0;
+  padding: 80px 0 80px 0;
 }
 .text-frame--wh400 {
   height: 400px;

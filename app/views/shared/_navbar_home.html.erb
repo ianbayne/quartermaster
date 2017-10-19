@@ -1,0 +1,73 @@
+<div id="navbar__home" class="navbar-wagon">
+  <!-- Logo -->
+
+  <div class="display__flex-center">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <svg id="logo_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162 162"><path class="logo_path" d="M81,1a80,80,0,1,0,80,80A80,80,0,0,0,81,1Zm54.27,123a5.75,5.75,0,0,1-5,3H108.37a5.79,5.79,0,0,1-4.88-2.67l-18.58-29a4.65,4.65,0,0,0-7.82,0l-18.57,29A5.82,5.82,0,0,1,53.64,127H31.76a5.74,5.74,0,0,1-4.88-8.8l49.4-79.86L67.64,25a3.86,3.86,0,1,1,6.48-4.18L81,31.41l6.88-10.64A3.86,3.86,0,0,1,94.35,25L85.71,38.33l49.41,79.87A5.72,5.72,0,0,1,135.27,124Z"/></svg>
+    <% end %>
+    <!-- Partial match with equipment name, Logic is in Equipment model, controller  -->
+    <%= form_tag root_path(anchor: 'search_result'),
+      :method => 'get',
+      class: 'form-group', label_html: { class:'form-inline' } do %>
+        <%= text_field_tag :search,
+        params[:search], placeholder: "Search with Equipment Name ",
+        id: "search_query",
+        class: "form-control",
+        label_html: { class: 'my_class' } %>
+        <%= submit_tag "Search", :name => nil, :style => 'display: none' %>
+    <% end %>
+  </div>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <% if user_signed_in? %>
+
+      <!-- Links when logged in -->
+      <%= link_to "Add equipment", new_user_equipment_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to user_path(current_user) do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% else %>
+      <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+  <!-- <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="#">Some mobile link</a></li>
+        <li><a href="#">Other one</a></li>
+        <li><a href="#">Other one</a></li>
+      </ul>
+    </div>
+  </div> -->
+</div>
+
+
