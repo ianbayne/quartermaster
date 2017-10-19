@@ -8,6 +8,9 @@ class UserMailer < ApplicationMailer
   def welcome(user)
     @user = user
 
-    mail(to: @user.email, subject: "To change later")
+    mail(
+      to: @user.email,
+      subject: "To change later"
+    )
   end
 end
