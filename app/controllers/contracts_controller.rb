@@ -7,13 +7,18 @@ class ContractsController < ApplicationController
   def create
     @equipment = Equipment.find(params[:equipment_id])
     @contract = Contract.new(contract_params)
+
     @duration = @contract.end_time - @contract.start_time
     @duration_day = (@duration / 86400).to_i
     @contract.price = @equipment.price * @duration_day
     @contract.equipment = @equipment
-    if @contract.save
+
+    if @equipment.rented == false && @contract.save
+      @equipment.update(rented: true)
       redirect_to user_path(params[:contract][:user_id])
     else
+      flash[:alert] = "This equipment is already rented."
+      @contract = Contract.new
       render :new
     end
   end

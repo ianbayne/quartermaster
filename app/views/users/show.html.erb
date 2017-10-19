@@ -13,6 +13,7 @@
           <h4>Your Equipment Bookings:</h4>
           <ul class="equipment__user--list">
             <% @contracts.each do |contract| %>
+
               <%= link_to equipment_path(contract.equipment), class: "profile__card--item" do %>
                 <li>
                   <div class="profile__card--photo" style="background-image: url('<%= cl_image_path contract.equipment.photo, crop: :fill %>');">
@@ -24,6 +25,7 @@
                   </div>
                 </li>
               <% end %>
+
             <% end %>
           </ul>
         </div>
