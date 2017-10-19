@@ -24,6 +24,9 @@
 }
 .profile__card--your-item {
   @extend %card--item;
+  &:last-child {
+    border-bottom: 1px solid $color__font--light;
+  }
 }
 .profile__card--item {
   @extend %card--item;
