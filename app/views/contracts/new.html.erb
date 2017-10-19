@@ -11,12 +11,54 @@
       <p>Price per Day $<%= @equipment.price %></p>
       <%= simple_form_for([@equipment, @contract]) do |f| %>
         <%#= f.error_notification %>
-        <%= f.input :start_time, as: :date %>
-        <%= f.input :end_time, as: :date %>
+        <%= f.input :start_time, as: :date, input_html: {class: "start_time"} %>
+        <%= f.input :end_time, as: :date, input_html: {class: "end_time"} %>
         <%= f.input :user_id, input_html: { value: current_user.id }, as: :hidden %>
+        <div id="total_payment">Total Payment:</div>
         <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
+      
     </div>
-
+      
   </div>
 </div>
+
+<%= content_for(:after_js) do %>
+<script>
+  const start_time = document.querySelectorAll(".start_time")
+  const end_time = document.querySelectorAll(".end_time")
+  const all_time = [...start_time, ...end_time]
+  const total_payment = document.querySelector("#total_payment")
+  // console.log(start_time)
+  // console.log(end_time)
+  // console.log(all_time)
+  // console.log(total_payment)
+
+  all_time.forEach((time, i ) => {
+    time.addEventListener("change",(e) => {
+      total_payment.innerHTML = ``
+      console.log(end_time[0].value, end_time[1].value, end_time[2].value)
+      const start_year = start_time[0].value
+      const start_month = start_time[1].value
+      const start_day = start_time[2].value
+      const end_year = end_time[0].value
+      const end_month = end_time[1].value
+      const end_day = end_time[2].value
+      const equipment_price = <%= @equipment.price %>
+      console.log(equipment_price)
+      const start_date = new Date(start_year, start_month-1, start_day);
+      const end_date = new Date(end_year, end_month-1, end_day);
+      const duration_day = (end_date - start_date) / 86400000
+      console.log(duration_day)
+
+      if (duration_day > 0) {
+        console.log("end_time is later than start_time")
+        total_payment.innerHTML = `${duration_day} days of rent,
+        Total Payment: \$${equipment_price * duration_day}`
+      } else {
+        total_payment.innerHTML = `Please review your date input.`
+      }
+    });  
+  })
+</script>
+<% end %>
