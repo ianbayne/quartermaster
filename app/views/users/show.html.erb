@@ -6,7 +6,8 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
       <div class="row">
         <h2 class="col-xs-12 col-sm-12 col-md-12">Welcome back! <%= @user.first_name %></h2>
-        <%= link_to "Edit profile", edit_user_path(@user) %>        
+        <%= link_to "Edit profile", edit_user_path(@user) %>
+        <p>LOCATION TEST:<%= @user.location %></p>   
       </div>
       
       <div class="row spacer_up_down">
@@ -40,8 +41,9 @@
                   <%= link_to "Edit", edit_user_equipment_path(@user, equipment) %>
                   <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <% end %>
+                  <p>TEST: <%= equipment.address %></p>
                 </div>
-                <% end %>
               </li>
             <% end %>
           </ul>
