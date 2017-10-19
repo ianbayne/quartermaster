@@ -11,6 +11,9 @@
         <%= f.input :description, as: :text %>
         <%= f.input :category%>
         <%= f.input :price, label: "Price per day" %>
+        <%= f.input :address, label: "Address for Picking up", 
+          input_html: { value: current_user.location || "" },
+          hint: "Default value is your location" %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.button :submit, class: "btn btn-primary" %>
