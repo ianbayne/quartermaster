@@ -10,12 +10,21 @@ $gray: #000000;
 $light-gray: #FAFAFA;
 
 
-$color__theme: #1E4A34;
-$color__theme--alpha95: rgba(30, 74, 52, 0.95);
-$color__theme--alpha75: rgba(30, 74, 52, 0.75);
-$color__theme--alpha50: rgba(30, 74, 52, 0.5);
-$color__theme--alpha25: rgba(30, 74, 52, 0.25);
-$color__theme--alpha0: rgba(30, 74, 52, 0);
+// $color__theme: #1E4A34; // FOREST GREEN
+// $color__theme--alpha95: rgba(30, 74, 52, 0.95);
+// $color__theme--alpha75: rgba(30, 74, 52, 0.75);
+// $color__theme--alpha50: rgba(30, 74, 52, 0.5);
+// $color__theme--alpha25: rgba(30, 74, 52, 0.25);
+// $color__theme--alpha0: rgba(30, 74, 52, 0);
+
+$color__theme: #FF8A19; // AUTUMN ORANGE
+$color__theme--alpha95: rgba(255, 138, 25, 0.95);
+$color__theme--alpha90: rgba(255, 138, 25, 0.90);
+$color__theme--alpha85: rgba(255, 138, 25, 0.85);
+$color__theme--alpha75: rgba(255, 138, 25, 0.75);
+$color__theme--alpha50: rgba(255, 138, 25, 0.5);
+$color__theme--alpha25: rgba(255, 138, 25, 0.25);
+$color__theme--alpha0: rgba(255, 138, 25, 0);
 $color__font: #2D2D2D;
 $color__font--light: #BFBFBF;
 

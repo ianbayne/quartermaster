@@ -1,13 +1,11 @@
 .card {
-  // background-size: cover !important;
-  // border: 1px dashed red;
-  // margin-right: 25px;
-  // text-shadow: 0 0 3px rgba(2, 3, 23, 0.8);
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  // background-size: 87.5%; // ONLY USEFUL FOR PRODUCT SHOTS ON A WHITE BG
   color: white;
-  padding-bottom: 33.3333333%;
+  padding-bottom: 97.5%;
+  height: 100%;
+  margin: 0 0 30px 0;
   position: relative;
   transition-duration: $duration--md;
   &:hover {
@@ -16,7 +14,7 @@
     }
   }
   &__overlay {
-    background-color: $color__theme--alpha75;
+    background-color: $color__theme--alpha90;
     height: 100%;
     left: 0;
     opacity: 0;
@@ -43,12 +41,22 @@
   }
 }
 .equipment__name {
-  font-size: 32px;
+  font-size: 38px;
+  line-height: 1;
+  &:after {
+    background-color: #FFFFFF;
+    content: '';
+    height: 2px;
+    width: 130px;
+    display: block;
+    margin: 12px auto;
+  }
 }
 .equipment__category {
-  color: $color__font--light;
-  font-size: 18px;
-  font-weight: bold;
+  // color: $color__font--light;
+  font-size: 16px;
+  // font-weight: bold;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 .equipment__price {

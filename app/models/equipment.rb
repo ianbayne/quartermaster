@@ -3,8 +3,11 @@ class Equipment < ApplicationRecord
   has_many :contracts, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   def self.search(search) #self. to set class method
-    if search #parameter from Controller !=, search equipment name
+    if search # if parameter from Controller !=, search equipment name
       Equipment.where(['name ILIKE ?', "%#{search}%"])
     else
       Equipment.all #otherwise show all

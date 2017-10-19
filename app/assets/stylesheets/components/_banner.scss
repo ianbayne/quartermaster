@@ -27,15 +27,19 @@
     }
   }
 }
+// NON PRIORITY RETURN LATER
+// #banner__scroll-down {
+//   content: "+";
+
+// }
 .banner {
   align-items: center;
-  // background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 100%, rgba(0, 0, 0, 0) 100%), image-url("camping-equipment-stock-today-151002-tease_c7fdee384de58767cfca8eb8d8bc3621.jpg");
-  background-image: linear-gradient(0deg, rgba(255, 134, 0, 0.8) 100%, rgba(0, 0, 0, 0) 100%), image-url("camping-equipment-stock-today-151002-tease_c7fdee384de58767cfca8eb8d8bc3621.jpg");
-  background-size: cover !important;
-  color: white;
   display: flex;
-  height: 100vh;
   justify-content: center;
+  background-size: cover !important;
+  background-blend-mode: hard-light;
+  color: white;
+  height: 100vh;
   & h1 {
     font-size: 150px;
     font-weight: 400;
@@ -52,8 +56,13 @@
   }
 }
 .banner-content {
-  margin: 0 0 20px 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   text-align: center;
+  width: calc(100% - 40px);
+  height: calc(100% - 34px);
+  border: 2px solid #FFFFFF;
   & > .btn {
     background-color: transparent;
     border-radius: 0;

@@ -1,3 +1,29 @@
+#navbar__home {
+  background: transparent;
+  left: 0;
+  padding: 60px 40px 0 40px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  #logo_svg {
+    height: 50px;
+    fill: #FFFFFF;
+  }
+  #search_query {
+    display: none;
+    // border: 1px solid #FFFFFF;
+    // color: #FFFFFF;
+    // border-radius: 50px;
+  }
+  .navbar-wagon-link {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+}
+
+
 // SEARCH BAR
 div.navbar-wagon {
   form {
