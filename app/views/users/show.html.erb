@@ -7,9 +7,9 @@
       <div class="row">
         <h2 class="col-xs-12 col-sm-12 col-md-12">Welcome back! <%= @user.first_name %></h2>
         <%= link_to "Edit profile", edit_user_path(@user) %>
-        <p>LOCATION TEST:<%= @user.location %></p>   
+        <p>LOCATION TEST:<%= @user.location %></p>
       </div>
-      
+
       <div class="row spacer_up_down">
         <div class="col-xs-12 col-sm-12 col-md-8 profile__card--case">
           <h4>Your Equipment Bookings:</h4>
@@ -38,7 +38,16 @@
                 </div>
                 <div class="profile__card--text">
                   <h4><%= equipment.name %></h4>
-                  <%= link_to "Edit", edit_user_equipment_path(@user, equipment) %>
+
+                  <!-- Message for Shun: The following "text-decoration: none" should probably be added to the SCSS. I added here just to get it working for the time being. -->
+
+
+                  <%= link_to edit_user_equipment_path(@user, equipment), style: "text-decoration: none" do %>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  <% end %>
+
+                  <!-- End of message for Shun -->
+
                   <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                   <% end %>
