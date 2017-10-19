@@ -23,6 +23,7 @@
                   <h4><%= link_to contract.equipment.name, equipment_path(contract.equipment) %></h4>
                   <p><%= contract.start_time.strftime("%b %d %Y") %> - <%= contract.end_time.strftime("%b %d %Y") %></p>
                   <p>Total Payment Due: $<%= contract.price %></p>
+                  <p>Equipment rented TEST: <%= contract.equipment.rented %></p>
                 </div>
               </li>
             <% end %>
