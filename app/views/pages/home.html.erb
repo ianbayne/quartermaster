@@ -47,7 +47,7 @@
     <% end %>
 
     <% @equipment.each do |equipment| %>
-      <% unless equipment.contracts.exists? %>
+      <%# unless equipment.contracts.exists? %>
         <%= link_to equipment_path(equipment), class: "" do%>
           <div class="col-xs-6 col-sm-4 col-md-4">
             <div class="card" style="background-image: url('<%= cl_image_path equipment.photo, crop: :fill %>');">
@@ -67,10 +67,7 @@
             </div>
           </div>
         <% end %>
-      <% end %>
-
-
-
+      <%# end %>
     <% end %>
 
     </div>
