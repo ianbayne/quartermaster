@@ -1,6 +1,11 @@
 <%= render 'shared/navbar' %>
+
 <div class="container spacer_up_down">
+
   <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-3 well__v--sm">
+      <%= link_to "< back to dashboard", user_path, class: "edit_text display__inline-block float-left" %>
+    </div>
     <div class="col-sm-6 col-sm-offset-3">
       <%= simple_form_for @equipment, url: url_for(action: 'update', controller: 'equipment'),
           method: 'patch' do |f| %>
