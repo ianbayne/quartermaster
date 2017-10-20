@@ -9,7 +9,7 @@
           <%#= f.error_notification %>
           <%= f.input :first_name, required: true %>
           <%= f.input :last_name, required: true %>
-          <%= f.input :location, required: true, collection: User::LOCATION,
+          <%= f.input :location, required: true,
           hint: "Updating your location will update location of your equipment as well." %>
           <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
