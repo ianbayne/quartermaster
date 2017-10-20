@@ -27,22 +27,36 @@
     }
   }
 }
-// NON PRIORITY RETURN LATER
-// #banner__scroll-down {
-//   content: "+";
-
-// }
+#banner__scroll-down {
+  bottom: 30px;
+  font-size: 22px;
+  left: 50%;
+  position: absolute;
+  // transform: translate(-50%, -50%);
+  letter-spacing: 1px;
+  animation: heartbeat 2.2s infinite ease;
+}
+@keyframes heartbeat {
+  0%   {opacity: 0.9;}
+  50%  {opacity: 0.2; transform: translateY(-4px);}
+  100% {opacity: 0.9;}
+}
 .banner {
-  // align-items: center;
-  background-blend-mode: hard-light;
-  background-size: cover !important;
+  overflow: hidden;
   color: white;
-  // display: flex;
   height: 100vh;
-  // justify-content: center;
   position: relative;
-  // transform: translateY(-70px);
-  // z-index: -10;
+  &__image {
+    background-blend-mode: hard-light;
+    background-size: cover !important;
+    filter: blur(0.75px);
+    height: 100vh;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: scale(1.1);
+    width: 100%;
+  }
   & h1 {
     font-size: 150px;
     font-weight: 400;
