@@ -1,4 +1,5 @@
-<div class="banner" style="background-image: linear-gradient(0deg, rgb(89, 48, 9) 100%, rgba(0, 0, 0, 0) 100%), url(<%= image_path 'camping-equipment-stock-today-151002-tease_c7fdee384de58767cfca8eb8d8bc3621.jpg' %>)">
+<div class="banner">
+  <div class="banner__image" style="background-image: linear-gradient(0deg, rgb(89, 48, 9) 100%, rgba(0, 0, 0, 0) 100%), url(<%= image_path 'camping-equipment-stock-today-151002-tease_c7fdee384de58767cfca8eb8d8bc3621.jpg' %>)"></div>
   <div class="banner__border"></div>
   <%= render 'shared/navbar_home' %>
   <div class="banner-content">
@@ -24,10 +25,9 @@
         <%= submit_tag "Search", :name => nil, :style => 'display: none' %>
       <% end %>
 
-      <!-- NON PRIORITY RETURN LATER / by Shun -->
-      <!-- <a id="banner__scroll-down" href="#search_result"></a> -->
     </div>
   </div>
+  <a id="banner__scroll-down" class="grit--online text-center" href="#search_result">&#9660;</a>
 </div>
 
 <!-- TEMPORARY DUMMY -->
