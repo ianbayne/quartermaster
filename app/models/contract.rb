@@ -10,7 +10,7 @@ class Contract < ApplicationRecord
   private
 
   def send_contract_emails
-    ContractMailer.new_contract(self).deliver_now
-    ContractMailer.notification_of_contract(self).deliver_now
+    ContractMailer.approval_of_rental(self).deliver_now
+    ContractMailer.notification_of_rental(self).deliver_now
   end
 end
