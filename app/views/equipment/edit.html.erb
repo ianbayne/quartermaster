@@ -14,7 +14,7 @@
         <%= f.input :description, as: :text %>
         <%= f.input :category%>
         <%= f.input :price, label: "Price per day" %>
-        <%= cl_image_tag @equipment.photo.url if @equipment.photo.present? %>
+        <%= cl_image_tag @equipment.photo.url, :class => "width__100" if @equipment.photo.present? %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.button :submit, class: "btn btn-primary" %>
