@@ -2,18 +2,14 @@
 <div id="show_user" class="container spacer_up_down">
   <div class="row width__100">
     <div class="col-xs-12 col-sm-12 col-md-12">
-
-          <h3 class="display__inline-block">Hi <span class="user_name"><%= @user.first_name %>!</span> Nice to see you again!</h3>
-          <%= link_to "edit profile", edit_user_path(@user), class: "edit_text display__inline-block" %>
-          <!-- <p>LOCATION TEST:<%#= @user.location %></p> -->
-
+      <h3 class="display__inline-block">Hi <span class="user_name"><%= @user.first_name %>!</span> Nice to see you again!</h3>
+      <%= link_to "edit profile", edit_user_path(@user), class: "edit_text display__inline-block" %>
+      <!-- <p>LOCATION TEST:<%#= @user.location %></p> -->
       <div class="row">
-
         <div class="col-xs-12 col-sm-12 col-md-8 profile__card--case">
           <h4>Your Equipment Bookings:</h4>
           <ul class="equipment__user--list">
             <% @contracts.each do |contract| %>
-
               <%= link_to equipment_path(contract.equipment), class: "profile__card--item" do %>
                 <li>
                   <div class="profile__card--photo" style="background-image: url('<%= cl_image_path contract.equipment.photo, crop: :fill %>');">
@@ -25,11 +21,9 @@
                   </div>
                 </li>
               <% end %>
-
             <% end %>
           </ul>
         </div>
-
         <div class="col-xs-12 col-sm-12 col-md-4 profile__card--case">
           <div>
             <h4 class="display__inline-block">Your Equipment For Rent:</h4>
@@ -42,11 +36,9 @@
                 </div>
                 <div class="profile__card--text">
                   <h4><%= equipment.name %></h4>
-
                   <%= link_to edit_user_equipment_path(@user, equipment), style: "text-decoration: none" do %>
                     <i class="fa fa-pencil-square-o fa-size--lg" aria-hidden="true"></i>
                   <% end %>
-
                   <%= link_to user_equipment_path(@user, equipment), method: :delete, data: { confirm: "Are you sure?"} do %>
                   <i class="fa fa-trash-o fa-size--lg" aria-hidden="true"></i>
                   <% end %>
@@ -57,7 +49,6 @@
           </ul>
         </div>
       </div>
-
     </div>
   </div>
 </div>
