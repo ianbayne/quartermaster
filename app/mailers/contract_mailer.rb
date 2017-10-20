@@ -7,21 +7,23 @@ class ContractMailer < ApplicationMailer
   #
   def approval_of_rental(contract)
     @contract = contract
-    @renter = contract.user_id
+    @renter = contract.user
+    @owner = contract.equipment.user
 
     mail(
       to: @renter.email,
-      subject: "Welcome to QuarterMaster"
+      subject: "Thank you for using QuarterMaster"
     )
   end
 
   def notification_of_rental(contract)
     @contract = contract
-    @owner = contract.equipment.user_id
+    @owner = contract.equipment.user
+    @renter = contract.user
 
     mail(
       to: @owner.email,
-      subject: "Welcome to QuarterMaster"
+      subject: "Someone has reserved your equipment"
     )
   end
 end
