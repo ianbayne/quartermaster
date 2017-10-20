@@ -65,7 +65,8 @@
 
       if (start_date_check && duration_day > 0) {
         console.log("start_date is later or equal to today + at least 1day duration")
-        total_payment.innerHTML = `${duration_day} days of rent,
+        let days = duration_day === 1 ? "day" : "days"
+        total_payment.innerHTML = `${duration_day} ${days} of rent,
         Total Payment: \$${equipment_price * duration_day}`
         contractButton.removeAttribute("disabled")
       } else {
