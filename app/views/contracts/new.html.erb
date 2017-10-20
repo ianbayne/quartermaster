@@ -1,3 +1,24 @@
+<%# [feature] %>
+<%# @contracts_order_by_end_time contains latest 5 contracts %>
+<%# want to show recent booking record in contract/new %>
+<%# so that user can know from when equipment is available %>
+<%# code snippet start %>
+<% if false %>
+<ul class="list-group">
+<% if @contracts_order_by_end_time.exists? %>
+<% @contracts_order_by_end_time.each do |contract| %>
+  <li class="list-group-item">
+    <%= contract.start_time.strftime("%b %d %Y") %> 
+    - 
+    <%= contract.end_time.strftime("%b %d %Y") %>
+  </li>
+<% end %>
+<% else %>
+  <li class="list-group-item">No booking record</li>
+<% end %>
+</ul>
+<% end %>
+<%# comment snippet end %>
 
 <div class="container spacer_up_down">
   <div class="row">
