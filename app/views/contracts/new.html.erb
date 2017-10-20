@@ -8,8 +8,8 @@
 <% if @contracts_order_by_end_time.exists? %>
 <% @contracts_order_by_end_time.each do |contract| %>
   <li class="list-group-item">
-    <%= contract.start_time.strftime("%b %d %Y") %> 
-    - 
+    <%= contract.start_time.strftime("%b %d %Y") %>
+    -
     <%= contract.end_time.strftime("%b %d %Y") %>
   </li>
 <% end %>
@@ -20,14 +20,15 @@
 <% end %>
 <%# comment snippet end %>
 
+<%= render 'shared/navbar' %>
 <div class="container spacer_up_down">
   <div class="row">
-
-    <div class="col-xs-12 col-sm-6 col-md-6 text-center">
-      <%= cl_image_tag @equipment.photo, height: 300, width: 400, crop: :fill %>
+    <div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 text-center">
+      <div class="image-frame--wh400" style="background-image: url(<%= cl_image_path @equipment.photo, crop: :fill %>)"></div>
+      <%#= cl_image_tag @equipment.photo, height: 300, width: 400, crop: :fill %>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-6 text-center">
+    <div class="col-xs-12 col-sm-5 col-md-5">
       <h4>Rent <%= @equipment.name %></h4>
       <p>Price per Day $<%= @equipment.price %></p>
       <%= simple_form_for([@equipment, @contract]) do |f| %>
@@ -38,9 +39,7 @@
         <div id="total_payment">Total Payment:</div>
         <%= f.button :submit, disabled: true, class: "btn btn-primary" %>
       <% end %>
-      
     </div>
-      
   </div>
 </div>
 
@@ -94,7 +93,7 @@
         total_payment.innerHTML = `Please review your date input.`
         contractButton.setAttribute("disabled", "true")
       }
-    });  
+    });
   })
 </script>
 <% end %>
