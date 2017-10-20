@@ -1,17 +1,15 @@
-
+<%= render 'shared/navbar' %>
 <div class="container spacer_up_down">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h2>Add equipment</h2>
-
       <%= simple_form_for([@user, @equipment]) do |f| %>
         <%#= f.error_notification %>
-
         <%= f.input :name %>
         <%= f.input :description, as: :text %>
         <%= f.input :category%>
         <%= f.input :price, label: "Price per day" %>
-        <%= f.input :address, label: "Address for Picking up", 
+        <%= f.input :address, label: "Address for Picking up",
           input_html: { value: current_user.location || "" },
           hint: "Default value is your location" %>
         <%= f.input :photo %>
