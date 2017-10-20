@@ -6,7 +6,7 @@
   background: transparent;
   left: 0;
   padding: 60px 40px 0 40px;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   #logo_svg {
@@ -15,9 +15,10 @@
   }
   #search_query {
     display: none;
-    // border: 1px solid #FFFFFF;
-    // color: #FFFFFF;
-    // border-radius: 50px;
+  }
+  &.navbar-wagon {
+    box-shadow: none;
+    // padding: 60px 44px 0 44px;
   }
   .navbar-wagon-link {
     color: #FFFFFF;
@@ -106,7 +107,10 @@ div.navbar-wagon {
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 30px 0 0;
+  &:last-child {
+    padding: 0 0 0 0;
+  }
 }
 
 /* Navbar link */

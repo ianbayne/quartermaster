@@ -33,6 +33,18 @@ h3 {
 .display__inline-block {
   display: inline-block;
 }
+.grit {
+  &--local {
+    -webkit-mask-image: url("grit.png");
+    mask-image: url("grit.png");
+  }
+  &--online {
+    mask-position: center;
+    mask-size: 25%;
+    -webkit-mask-image: url("http://support.nature.org/images/earth/assets/grit.png");
+    mask-image: url("http://support.nature.org/images/earth/assets/grit.png");
+  }
+}
 .image-frame--wh400 {
   background-position: center;
   background-repeat: no-repeat;
@@ -40,11 +52,14 @@ h3 {
   height: 400px;
   width: 400px;
 }
-.spacer_up_down {
-  padding: 80px 0 80px 0;
-}
+// #search_result.spacer_up_down {
+//   padding: 10px 0 80px 0;
+// }
 #show_equipment.spacer_up_down, #show_user.spacer_up_down {
     padding: 40px 0 40px 0;
+}
+.spacer_up_down {
+  padding: 80px 0 80px 0;
 }
 .width__100 {
   width: 100%;
