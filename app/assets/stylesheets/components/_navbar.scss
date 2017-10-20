@@ -4,25 +4,21 @@
 }
 #navbar__home {
   background: transparent;
-  // left: 0;
-  // padding: 60px 40px 0 40px;
-  // position: absolute;
-  // top: 0;
+  left: 0;
+  padding: 60px 40px 0 40px;
+  position: relative;
+  top: 0;
   width: 100%;
-  z-index: 10;
   #logo_svg {
     height: 50px;
     fill: #FFFFFF;
   }
   #search_query {
     display: none;
-    // border: 1px solid #FFFFFF;
-    // color: #FFFFFF;
-    // border-radius: 50px;
   }
   &.navbar-wagon {
     box-shadow: none;
-    padding: 60px 44px 0 44px;
+    // padding: 60px 44px 0 44px;
   }
   .navbar-wagon-link {
     color: #FFFFFF;

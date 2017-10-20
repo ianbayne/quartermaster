@@ -1,11 +1,10 @@
-<%= render 'shared/navbar_home' %>
-<div class="banner"
-style="background-image: linear-gradient(0deg, rgb(89, 48, 9) 100%, rgba(0, 0, 0, 0) 100%),
-url(<%= image_path 'camping-equipment-stock-today-151002-tease_c7fdee384de58767cfca8eb8d8bc3621.jpg' %>)">
+<div class="banner" style="background-image: linear-gradient(0deg, rgb(89, 48, 9) 100%, rgba(0, 0, 0, 0) 100%), url(<%= image_path 'camping-equipment-stock-today-151002-tease_c7fdee384de58767cfca8eb8d8bc3621.jpg' %>)">
+  <div class="banner__border"></div>
+  <%= render 'shared/navbar_home' %>
   <div class="banner-content">
     <div>
-      <h1>QuarterMaster</h1>
-      <p>Book unique camping gear and experience the outback</p>
+      <h1 class="grit--online">QuarterMaster</h1>
+      <p>Book unique camping gear and experience the world</p>
 
       <%#= form_tag root_path, :method => 'get', id: 'banner__search', class: 'form-group', label_html: { class:'form-inline' } do %>
       <!-- <i class="fa fa-search banner__search_icon"></i> -->
