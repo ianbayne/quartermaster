@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+AirBnB inspired site for renting camping gear. Created for Batch 94 of Le Wagon Tokyo.
+
+https://ib-quartermaster.herokuapp.com/
