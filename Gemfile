@@ -32,6 +32,7 @@ end
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection' # SOURCE: https://github.com/omniauth/omniauth/wiki/Resolving-CVE-2015-9284
 gem "geocoder"
 
 gem 'coffee-rails'
