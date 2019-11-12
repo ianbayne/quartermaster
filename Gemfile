@@ -4,7 +4,7 @@ ruby '2.3.4'
 gem "letter_opener", group: :development
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'faker'
-gem 'devise', '4.6.1'
+gem 'devise', '4.7.1'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.18.0'

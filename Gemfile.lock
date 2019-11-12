@@ -70,11 +70,11 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
-    crass (1.0.4)
-    devise (4.6.1)
+    crass (1.0.5)
+    devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 6.0)
+      railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
     domain_name (0.5.20190701)
@@ -114,7 +114,7 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    loofah (2.2.3)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -257,7 +257,7 @@ DEPENDENCIES
   carrierwave (~> 0.11.2)
   cloudinary
   coffee-rails
-  devise (= 4.6.1)
+  devise (= 4.7.1)
   faker
   figaro
   font-awesome-sass
